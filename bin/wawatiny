@@ -1,0 +1,34 @@
+var program = require('commander');
+var wawatiny = require('../lib');
+var path = require('path');
+var argv = require('minimist')(process.argv.slice(2));
+var input = argv.i || argv.input;
+var output = argv.o || argv.output;
+
+program
+  .version(require('../package.json').version, '-v --version')
+  .usage('<command> [options]')
+  .option('-i, --input', 'input directory [require]')
+  .option('-o, --output', 'output directory')
+
+program
+  .command('start')
+  .description('start compress images')
+  .action(start)
+
+program.parse(process.argv)
+
+function start() {
+  if (!input) {
+    console.log('require input directory');
+    return;
+  }
+
+  input = path.resolve(process.cwd(), input);
+  if (!!output) output = path.resolve(process.cwd(), output);
+
+  wawatiny({
+    input: input,
+    output: output
+  });
+}
