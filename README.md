@@ -10,17 +10,19 @@ npm install -g wawatiny
 
 ## How  to use ?
 
+### Command Line
+
 ```
 wawatiny start -i inputdirectory -o outputdirectory
 ```
 
-or 
+### Nodejs File 
 
 ```
 var wawatiny = require('wawatiny');
 wawatiny({
- input: 'inputdirectory',
- output: 'outputdirectory'
+ input: 'inputdirectory',  //[required]
+ output: 'outputdirectory' //[optional]
 })
 
 ```
