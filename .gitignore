@@ -1,5 +1,2 @@
-.idea
-*.log
-.DS_Store
-package-lock.json
 node_modules
+package-lock.json

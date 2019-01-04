@@ -34,3 +34,7 @@ function start() {
     output: output
   });
 }
+
+if (!program.args.length) {
+  program.outputHelp()
+}
