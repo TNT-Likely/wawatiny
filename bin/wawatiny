@@ -6,12 +6,14 @@ var path = require('path');
 var argv = require('minimist')(process.argv.slice(2));
 var input = argv.i || argv.input;
 var output = argv.o || argv.output;
+var max = argv.m || argv.max
 
 program
   .version(require('../package.json').version, '-v --version')
   .usage('<command> [options]')
   .option('-i, --input', 'input directory [require]')
   .option('-o, --output', 'output directory')
+  .option('-m, --max', 'max retry times [default 10]')
 
 program
   .command('start')
@@ -31,7 +33,8 @@ function start() {
 
   wawatiny({
     input: input,
-    output: output
+    output: output,
+    max: max
   });
 }
 
