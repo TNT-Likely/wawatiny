@@ -19,6 +19,6 @@
     "cli-table": "^0.3.1",
     "commander": "^2.12.2",
     "listr": "^0.14.3",
-    "minimist": "^1.2.0"
+    "minimist": "^1.2.6"
   }
 }
