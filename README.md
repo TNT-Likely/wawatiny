@@ -1,28 +1,9 @@
-# wawatiny
+# minify-img
 
-use tinypng.com to compress images
-
-## Install
-
-```
-npm install -g wawatiny 
-```
+Lossless compression of png images
 
 ## How  to use ?
 
-### Command Line
-
-```
-wawatiny start -i inputdirectory -o outputdirectory
-```
-
-### Nodejs File 
-
-```
-var wawatiny = require('wawatiny');
-wawatiny({
- input: 'inputdirectory',  //[required]
- output: 'outputdirectory' //[optional]
-})
-
+```bash
+minify-img -i inputdirectory 
 ```

@@ -1,24 +1,23 @@
 {
-  "name": "wawatiny",
-  "version": "2.3.0",
+  "name": "minify-img",
+  "description": "Lossless compression of png images",
+  "version": "1.0.0",
   "main": "lib/index.js",
   "license": "MIT",
   "bin": {
-    "wawatiny": "./bin/wawatiny"
+    "minify-img": "./bin/main"
   },
   "keywords": [
-    "tinypng",
-    "tinypng.com",
-    "compress images"
+    "compress images",
+    "Lossless compression"
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/TNT-Likely/wawatiny.git"
-  },
   "dependencies": {
+    "chalk": "^3.0.0",
     "cli-table": "^0.3.1",
     "commander": "^2.12.2",
+    "fs-extra": "^11.2.0",
     "listr": "^0.14.3",
-    "minimist": "^1.2.0"
+    "minimist": "^1.2.0",
+    "p-limit": "3"
   }
 }

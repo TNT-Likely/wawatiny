@@ -1,22 +1,24 @@
 #!/usr/bin/env node
 
 var program = require('commander');
-var wawatiny = require('../lib');
+var miniImages = require('../lib');
 var path = require('path');
 var argv = require('minimist')(process.argv.slice(2));
 var input = argv.i || argv.input;
 var output = argv.o || argv.output;
-var max = argv.m || argv.max
+var retryTimes = argv.r || argv.retryTimes
+const limit = argv.l || argv.limit
 
 program
   .version(require('../package.json').version, '-v --version')
   .usage('<command> [options]')
   .option('-i, --input', 'input directory [require]')
   .option('-o, --output', 'output directory')
-  .option('-m, --max', 'max retry times [default 10]')
+  .option('-r, --retryTimes', 'max retry times [default 10]')
+  .option('-l, --limit', 'maximum concurrency [default 5]')
 
 program
-  .command('start')
+  .command('*')
   .description('start compress images')
   .action(start)
 
@@ -31,10 +33,11 @@ function start() {
   input = path.resolve(process.cwd(), input);
   if (!!output) output = path.resolve(process.cwd(), output);
 
-  wawatiny({
+  miniImages({
     input: input,
     output: output,
-    max: max
+    retryTimes,
+    limit
   });
 }
 
